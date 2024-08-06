@@ -16,6 +16,7 @@ class IntlPhoneField extends StatefulWidget {
 
   /// Whether to hide the text being edited (e.g., for passwords).
   final bool obscureText;
+  final bool showDropDown;
 
   /// How the text should be aligned horizontally.
   final TextAlign textAlign;
@@ -256,6 +257,7 @@ class IntlPhoneField extends StatefulWidget {
     this.languageCode = 'en',
     this.disableAutoFillHints = false,
     this.obscureText = false,
+    this.showDropDown = true,
     this.textAlign = TextAlign.left,
     this.textAlignVertical,
     this.onTap,
@@ -454,7 +456,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
         decoration: widget.dropdownDecoration,
         child: InkWell(
           borderRadius: widget.dropdownDecoration.borderRadius as BorderRadius?,
-          onTap: widget.enabled ? _changeCountry : null,
+          onTap: widget.showDropDown ? _changeCountry : null,
           child: Padding(
             padding: widget.flagsButtonPadding,
             child: Row(
